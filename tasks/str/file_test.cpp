@@ -9,6 +9,7 @@ enum Errors {
     OUT_OF_MEMORY
 };
 //рассказать про fprintf
+// fseek - движение указателя в файле
 /*int main()
 {
     //fix fopen by: https://stackoverflow.com/questions/22450423/how-to-use-crt-secure-no-warnings
