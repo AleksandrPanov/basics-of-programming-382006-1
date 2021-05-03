@@ -12,7 +12,6 @@ int main()
         if (_kbhit())
         {
             button = _getch();
-            int extendent = 0;
             if (button)
             {
                 cout << "Нажата кнопка " << button << " " <<(char)button << endl;
