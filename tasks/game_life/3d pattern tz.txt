@@ -1,0 +1,25 @@
+Реализовать следующие статусы у игры:
+1.gameSetup (вместо "gameSetup" можно сделать несколько статусов:
+  gameSetDim, gameSetSize, gameSetP, ...)
+2.gameReady
+3.gameRun
+4.gamePause (игру можно ставить на паузу, продолжать по нажатию кнопки "p", 
+  по нажатию кнопки "r" игра конфигурируется заново)
+5.gameOver (игра может завершиться при событии "FieldEmpty" или "FieldFull"
+  при нажатии кнопки "r" игра конфигурируется заново)
+
+Необходимо реализовать паттерн наблюдатель (https://medium.com/clean-code-channel/observer-vs-pub-sub-pattern-4fc1da35d11):
+1.Subject это iGame (iGame наследуется от Subject)
+2.Observer это View (View наследуется от Observer)
+3.subject генерирует события event и уведомляет список(вектор) наблюдателей, которые подписались на уведомления.
+  Уведомления делаются с помощью void update(GameEvent event). Обязательные GameEvent: FieldEmpty и FieldFull
+struct Observer
+{
+    virtual void newEvent(GameEvent event) {};
+};
+struct Subject
+{
+    vector<Observer*> observers;
+    void subscribe(Observer& tmp); //реализовать
+    void update(GameEvent event);  //реализовать
+};
